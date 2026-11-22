@@ -236,12 +236,15 @@ footer{padding:32px 0 40px;color:var(--muted);font-size:14px;text-align:center}
     { name: "Scientific and geospatial data", text: "Large-scale pipelines and analytics for satellite, airborne and location data." },
   ];
 
+  // "updated" = when the project last changed (year-month). Projects not updated in the
+  // last 2 years are hidden automatically. Update the date to show a project again.
   const PROJECTS = [
-    { name: "stategate",  kind: "Python library", url: "https://github.com/MBoustani/stategate",  what: "Deterministic guardrails for AI agents. Tool rules are enforced in code, not prompts, for the OpenAI Agents SDK and Claude Agent SDK." },
-    { name: "TickerToy",  kind: "Website",        url: "https://www.tickertoy.com",                what: "A 3D stock-market map where every company acts out its latest news. Rebuilt automatically every week." },
-    { name: "Geothon",    kind: "Open source",    url: "https://github.com/MBoustani/Geothon",    what: "A cookbook of geospatial and GIS code examples in Python." },
-    { name: "Khooshe",    kind: "Open source",    url: "https://github.com/MBoustani/Khooshe",    what: "A tool for visualizing very large sets of geospatial points." },
+    { name: "stategate", kind: "Python library", updated: "2026-11", url: "https://github.com/MBoustani/stategate", what: "Deterministic guardrails for AI agents. Tool rules are enforced in code, not prompts, for the OpenAI Agents SDK and Claude Agent SDK." },
+    { name: "TickerToy", kind: "Website",        updated: "2026-11", url: "https://www.tickertoy.com",               what: "A 3D stock-market map where every company acts out its latest news. Rebuilt automatically every week." },
+    { name: "Geothon",   kind: "Open source",    updated: "2016-02", url: "https://github.com/MBoustani/Geothon",   what: "A cookbook of geospatial and GIS code examples in Python." },
+    { name: "Khooshe",   kind: "Open source",    updated: "2016-05", url: "https://github.com/MBoustani/Khooshe",   what: "A tool for visualizing very large sets of geospatial points." },
   ];
+  const MAX_AGE_YEARS = 2;
 
   const JOBS = [
     { title: "Senior Applied Scientist / Technical Lead, Generative AI", org: "Nexon", when: "2023 – now",
@@ -259,7 +262,10 @@ footer{padding:32px 0 40px;color:var(--muted);font-size:14px;text-align:center}
     `<li class="card c${(i % 3) + 1}"><span class="dot" aria-hidden="true"></span><h3>${esc(s.name)}</h3><p>${esc(s.text)}</p></li>`
   ).join("");
 
-  document.getElementById("projects-list").innerHTML = PROJECTS.map(p =>
+  const cutoff = new Date(); cutoff.setFullYear(cutoff.getFullYear() - MAX_AGE_YEARS);
+  const recent = PROJECTS.filter(p => new Date(p.updated + "-01") >= cutoff);
+
+  document.getElementById("projects-list").innerHTML = recent.map(p =>
     `<a class="card" href="${esc(p.url)}"><span class="kind">${esc(p.kind)}</span><span class="name">${esc(p.name)}</span><p>${esc(p.what)}</p><span class="go">View project</span></a>`
   ).join("");
 
