@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Mazi Boustani</title>
-<meta name="description" content="Mazi Boustani — data scientist and AI engineer at NASA JPL. Agentic AI, LLMs, machine learning and geospatial data.">
-<meta property="og:title" content="Mazi Boustani — Data Scientist & AI Engineer">
-<meta property="og:description" content="Agentic AI, LLMs, machine learning and geospatial data.">
+<meta name="description" content="Mazi (Maziyar) Boustani — senior applied scientist and technical lead in generative AI. Reliable agentic AI, LLM fine-tuning, RAG and machine learning.">
+<meta property="og:title" content="Mazi Boustani — Applied Scientist, Generative AI">
+<meta property="og:description" content="Reliable agentic AI, LLM fine-tuning, RAG and machine learning.">
 <meta property="og:url" content="https://mboustani.com">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary">
@@ -77,8 +77,10 @@ section{padding:60px 0;border-top:1px solid var(--line)}
 section:first-child{border-top:0}
 h2{margin:0 0 24px;font-size:15px;font-weight:600;color:var(--muted)}
 .about p{font-size:18px;max-width:62ch}
-.focus{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px;padding:0;list-style:none}
-.focus li{font-size:14px;padding:6px 12px;border-radius:999px;border:1px solid var(--line)}
+.caps{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 40px;margin:0;padding:0;list-style:none}
+.caps li{padding:18px 0;border-top:1px solid var(--line)}
+.caps strong{display:block;font-size:18px;margin-bottom:4px}
+.caps span{color:var(--muted);font-size:16px}
 
 .list{list-style:none;margin:0;padding:0}
 .list li{border-bottom:1px solid var(--line)}
@@ -92,7 +94,9 @@ h2{margin:0 0 24px;font-size:15px;font-weight:600;color:var(--muted)}
 .job{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 20px}
 .job .title{font-size:20px;font-weight:700}
 .job .when{color:var(--muted);font-size:15px;white-space:nowrap}
-.job .org{grid-column:1/-1;color:var(--muted)}
+.job .org{grid-column:1/-1;color:var(--cobalt);font-weight:600}
+.job .jtext{grid-column:1/-1;margin:4px 0 0;max-width:62ch}
+.edu{margin-top:36px;color:var(--muted)}
 
 .contact p{font-size:clamp(24px,3.4vw,32px);font-weight:700;font-stretch:110%;line-height:1.25;max-width:24ch;margin-bottom:24px}
 .contact .btn.main{background:var(--cobalt);color:var(--bg)}
@@ -106,6 +110,7 @@ footer{padding:40px 0 48px;color:var(--muted);font-size:14px;border-top:1px soli
   .hero-text{padding:28px 0 8px}
   .portrait{max-width:360px;width:88%;justify-self:center}
   .list .kind{grid-column:1/-1;grid-row:2}
+  .caps{grid-template-columns:minmax(0,1fr)}
   section{padding:44px 0}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
@@ -119,6 +124,7 @@ footer{padding:40px 0 48px;color:var(--muted);font-size:14px;border-top:1px soli
       <a class="mark" href="#top">MB</a>
       <nav aria-label="Main">
         <a href="#about">About</a>
+        <a href="#skills">Skills</a>
         <a href="#projects">Projects</a>
         <a href="#contact">Contact</a>
       </nav>
@@ -127,7 +133,7 @@ footer{padding:40px 0 48px;color:var(--muted);font-size:14px;border-top:1px soli
     <div class="hero-grid">
       <div class="hero-text">
         <h1>Mazi Boustani</h1>
-        <p class="lede">Data scientist and AI engineer at <b>NASA JPL</b>. I build AI agents you can trust, LLM products, and tools for geospatial data.</p>
+        <p class="lede">Senior applied scientist and tech lead in <b>generative AI</b>. I design and build reliable AI agents, and the LLM, retrieval and ML systems behind them.</p>
         <div class="buttons">
           <a class="btn main" href="#projects">See my work</a>
           <a class="btn alt" href="https://github.com/MBoustani">GitHub</a>
@@ -147,11 +153,19 @@ footer{padding:40px 0 48px;color:var(--muted);font-size:14px;border-top:1px soli
 <main class="page">
   <section class="about" id="about">
     <h2>About</h2>
-    <!-- EDIT: rewrite in your own words; add years of experience and education if you like. -->
-    <p>I work at NASA's Jet Propulsion Laboratory in Pasadena, where I apply machine learning and LLMs to real, messy data. I started in geospatial data science, building open-source tools for maps and very large location datasets.</p>
-    <p>Today I focus on agentic AI: making LLM agents reliable enough to trust with real actions, by putting the rules in code instead of in prompts.</p>
-    <ul class="focus">
-      <li>Agentic AI</li><li>LLMs</li><li>Machine learning</li><li>PyTorch</li><li>Hugging Face</li><li>Geospatial / GIS</li><li>Python</li>
+    <p>For more than a decade I've turned applied research into working systems: scientific data analytics for NASA missions, knowledge graphs and computer vision for industry, and today, production generative AI.</p>
+    <p>My focus is agentic AI that behaves reliably. That means agents with guardrails, memory and stateful workflows, grounded in good retrieval, and built on models that are carefully fine-tuned and evaluated. I also explore research on world models and spatial intelligence.</p>
+  </section>
+
+  <section id="skills">
+    <h2>What I do</h2>
+    <ul class="caps">
+      <li><strong>Agentic AI systems</strong><span>Multi-agent orchestration, tool calling, MCP, guardrails, memory and stateful workflows</span></li>
+      <li><strong>LLM fine-tuning</strong><span>Post-training open models, efficient adaptation, and fast, low-cost serving</span></li>
+      <li><strong>RAG and search</strong><span>Chatbots and search grounded in your documents, with hybrid retrieval and reranking</span></li>
+      <li><strong>LLM evaluation</strong><span>Measuring quality, catching regressions, and observing AI systems in production</span></li>
+      <li><strong>Machine learning and vision</strong><span>Predictive models, anomaly detection, NLP, and computer vision for edge devices</span></li>
+      <li><strong>Scientific and geospatial data</strong><span>Large-scale pipelines and analytics for satellite, airborne and location data</span></li>
     </ul>
   </section>
 
@@ -163,16 +177,17 @@ footer{padding:40px 0 48px;color:var(--muted);font-size:14px;border-top:1px soli
   <section id="experience">
     <h2>Experience</h2>
     <div id="jobs"></div>
+    <p class="edu">Education: Master of Geographic Information Science, California State University, Northridge</p>
   </section>
 
   <section class="contact" id="contact">
     <h2>Contact</h2>
-    <p>Want to talk about AI agents, LLMs or ML? Reach out.</p>
+    <p>Want to talk about AI agents, LLMs or applied ML? Reach out.</p>
     <div class="buttons">
-      <!-- EDIT: add your email, e.g. <a class="btn main" href="mailto:hello@mboustani.com">hello@mboustani.com</a> -->
-      <a class="btn main" href="https://github.com/MBoustani">GitHub</a>
-      <a class="btn alt" href="https://x.com/maziboustani">X / Twitter</a>
-      <!-- EDIT: add LinkedIn, e.g. <a class="btn alt" href="https://linkedin.com/in/...">LinkedIn</a> -->
+      <a class="btn main" href="https://www.linkedin.com/in/maziboustani">LinkedIn</a>
+      <a class="btn alt" href="https://github.com/MBoustani">GitHub</a>
+      <a class="btn alt" href="https://medium.com/@MaziBoustani">Medium</a>
+      <a class="btn alt" href="https://x.com/maziboustani">X</a>
     </div>
   </section>
 
@@ -193,9 +208,13 @@ footer{padding:40px 0 48px;color:var(--muted);font-size:14px;border-top:1px soli
     { name: "GISCube",    kind: "Open source",    url: "https://github.com/MBoustani/GISCube",    what: "A web-based GIS application." },
   ];
 
-  // EDIT: add your real start date and earlier roles.
   const JOBS = [
-    { title: "Data Scientist and AI Engineer", org: "NASA Jet Propulsion Laboratory · Pasadena, CA", when: "Present" },
+    { title: "Senior Applied Scientist / Technical Lead, Generative AI", org: "Nexon", when: "2023 – now",
+      text: "Leading applied research and production work on agentic AI, LLM post-training, and RAG-powered products." },
+    { title: "Data Scientist / AI Engineer", org: "Beyond Limits AI", when: "2018 – 2023",
+      text: "Neuro-symbolic AI and knowledge graphs, computer vision for robotics and edge devices, and predictive ML." },
+    { title: "Data Scientist", org: "NASA Jet Propulsion Laboratory", when: "2012 – 2018",
+      text: "Machine learning and data pipelines for Earth-science missions; led JPL's GeoSpatial Working Group. Two NASA JPL awards." },
   ];
 
   /* ---------------------- page code below ---------------------- */
@@ -206,8 +225,8 @@ footer{padding:40px 0 48px;color:var(--muted);font-size:14px;border-top:1px soli
   ).join("");
 
   document.getElementById("jobs").innerHTML = JOBS.map(j =>
-    `<div class="job"><span class="title">${esc(j.title)}</span><span class="when">${esc(j.when)}</span><span class="org">${esc(j.org)}</span></div>`
-  ).join('<div style="height:20px"></div>');
+    `<div class="job"><span class="title">${esc(j.title)}</span><span class="when">${esc(j.when)}</span><span class="org">${esc(j.org)}</span><p class="jtext">${esc(j.text)}</p></div>`
+  ).join('<div style="height:32px"></div>');
 
   document.getElementById("year").textContent = new Date().getFullYear();
 
