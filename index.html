@@ -122,16 +122,15 @@ h2{margin:0 0 6px;font-size:clamp(24px,2.6vw,30px);line-height:1.15;font-weight:
 /* experience tile */
 .exp{grid-column:span 3}
 .exp ol{list-style:none;margin:6px 0 0;padding:0}
-.exp li{position:relative;padding:0 0 22px 26px}
-.exp li::before{content:"";position:absolute;left:0;top:8px;width:10px;height:10px;border-radius:50%;background:var(--lav);box-shadow:inset 0 0 0 2px var(--ink)}
-.exp li:first-child::before{background:var(--accent);box-shadow:none}
-.exp li::after{content:"";position:absolute;left:4.5px;top:24px;bottom:2px;width:1px;background:var(--line)}
-.exp li:last-child{padding-bottom:6px}.exp li:last-child::after{display:none}
+.exp li{position:relative;display:grid;grid-template-columns:52px minmax(0,1fr);gap:16px;padding:0 0 24px}
+.exp li::after{content:"";position:absolute;left:26px;top:58px;bottom:6px;width:2px;border-radius:2px;background:var(--line)}
+.exp li:last-child{padding-bottom:4px}.exp li:last-child::after{display:none}
+.badge{width:52px;height:52px;border-radius:16px;display:grid;place-items:center;font-weight:700;font-size:15px;letter-spacing:-.01em;overflow:hidden}
+.badge img{width:100%;height:100%;object-fit:contain;background:#fff;padding:6px}
 .exp .when{font-size:14px;font-weight:600;color:var(--muted)}
 .exp .title{font-weight:700;line-height:1.3}
-.exp .org{color:#d94f22;font-weight:600;font-size:15px}
+.exp .org{font-weight:600;font-size:15px}
 .exp .text{color:var(--muted);font-size:15px;margin:4px 0 0}
-.exp .edu{margin:10px 0 0;padding-top:16px;border-top:1px solid var(--line);color:var(--muted);font-size:15px}
 
 /* contact tile */
 .contact{grid-column:1/-1;background:var(--ink);color:#fff;padding:clamp(30px,5vw,56px);display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:24px;align-items:end;margin-top:20px}
@@ -292,12 +291,18 @@ footer{padding:28px 0 36px;color:var(--muted);font-size:14px;display:flex;justif
     { name: "Machine learning and vision", text: "Predictive models, anomaly detection, NLP, computer vision on edge devices" },
   ];
 
+  // Each job gets a colorful badge with its initials ("badge", "bg", "fg").
+  // To use an official logo instead (only if the company allows it), put the file in img/logos/
+  // and set logo: "img/logos/name.svg".
   const JOBS = [
     { when: "2023 – now",  title: "Senior Applied Scientist / Technical Lead, Generative AI", org: "Nexon",
+      badge: "NX", bg: "#ffe1d6", fg: "#d9431a", logo: "",
       text: "Applied research and production work on agentic AI, LLM post-training and RAG-powered products." },
     { when: "2018 – 2023", title: "Data Scientist / AI Engineer", org: "Beyond Limits AI",
+      badge: "BL", bg: "#e6e1ff", fg: "#5b45e0", logo: "",
       text: "Neuro-symbolic AI and knowledge graphs, computer vision for edge devices, predictive ML." },
     { when: "2012 – 2018", title: "Data Scientist", org: "NASA Jet Propulsion Laboratory",
+      badge: "JPL", bg: "#d8f0ff", fg: "#0b6fa8", logo: "",
       text: "ML and data pipelines for Earth-science missions; led JPL's GeoSpatial Working Group. Two NASA JPL awards." },
   ];
 
@@ -321,7 +326,10 @@ footer{padding:28px 0 36px;color:var(--muted);font-size:14px;display:flex;justif
   ).join("");
 
   document.getElementById("jobs").innerHTML = JOBS.map(j =>
-    `<li><div class="when">${esc(j.when)}</div><div class="title">${esc(j.title)}</div><div class="org">${esc(j.org)}</div><p class="text">${esc(j.text)}</p></li>`
+    `<li><div class="badge" style="background:${esc(j.bg)};color:${esc(j.fg)}" aria-hidden="true">` +
+      (j.logo ? `<img src="${esc(j.logo)}" alt="">` : esc(j.badge)) + `</div>` +
+    `<div><div class="when">${esc(j.when)}</div><div class="title">${esc(j.title)}</div>` +
+    `<div class="org" style="color:${esc(j.fg)}">${esc(j.org)}</div><p class="text">${esc(j.text)}</p></div></li>`
   ).join("");
 
   document.getElementById("year").textContent = new Date().getFullYear();
