@@ -126,7 +126,8 @@ h2{margin:0 0 6px;font-size:clamp(24px,2.6vw,30px);line-height:1.15;font-weight:
 .exp li::after{content:"";position:absolute;left:26px;top:58px;bottom:6px;width:2px;border-radius:2px;background:var(--line)}
 .exp li:last-child{padding-bottom:4px}.exp li:last-child::after{display:none}
 .badge{width:52px;height:52px;border-radius:16px;display:grid;place-items:center;font-weight:700;font-size:15px;letter-spacing:-.01em;overflow:hidden}
-.badge img{width:100%;height:100%;object-fit:contain;background:#fff;padding:6px}
+.badge.has-logo{background:#fff!important;box-shadow:inset 0 0 0 1px var(--line)}
+.badge img{width:100%;height:100%;object-fit:contain;padding:7px;display:block}
 .exp .when{font-size:14px;font-weight:600;color:var(--muted)}
 .exp .title{font-weight:700;line-height:1.3}
 .exp .org{font-weight:600;font-size:15px}
@@ -296,13 +297,13 @@ footer{padding:28px 0 36px;color:var(--muted);font-size:14px;display:flex;justif
   // and set logo: "img/logos/name.svg".
   const JOBS = [
     { when: "2023 – now",  title: "Senior Applied Scientist / Technical Lead, Generative AI", org: "Nexon",
-      badge: "NX", bg: "#ffe1d6", fg: "#d9431a", logo: "",
+      badge: "NX", bg: "#ffe1d6", fg: "#0a86bd", logo: "img/logos/nexon.png",
       text: "Applied research and production work on agentic AI, LLM post-training and RAG-powered products." },
     { when: "2018 – 2023", title: "Data Scientist / AI Engineer", org: "Beyond Limits AI",
-      badge: "BL", bg: "#e6e1ff", fg: "#5b45e0", logo: "",
+      badge: "BL", bg: "#e6e1ff", fg: "#d81b0c", logo: "img/logos/beyond-limits.png",
       text: "Neuro-symbolic AI and knowledge graphs, computer vision for edge devices, predictive ML." },
     { when: "2012 – 2018", title: "Data Scientist", org: "NASA Jet Propulsion Laboratory",
-      badge: "JPL", bg: "#d8f0ff", fg: "#0b6fa8", logo: "",
+      badge: "JPL", bg: "#d8f0ff", fg: "#0b3d91", logo: "img/logos/nasa.png",
       text: "ML and data pipelines for Earth-science missions; led JPL's GeoSpatial Working Group. Two NASA JPL awards." },
   ];
 
@@ -326,7 +327,7 @@ footer{padding:28px 0 36px;color:var(--muted);font-size:14px;display:flex;justif
   ).join("");
 
   document.getElementById("jobs").innerHTML = JOBS.map(j =>
-    `<li><div class="badge" style="background:${esc(j.bg)};color:${esc(j.fg)}" aria-hidden="true">` +
+    `<li><div class="badge${j.logo ? " has-logo" : ""}" style="background:${esc(j.bg)};color:${esc(j.fg)}" aria-hidden="true">` +
       (j.logo ? `<img src="${esc(j.logo)}" alt="">` : esc(j.badge)) + `</div>` +
     `<div><div class="when">${esc(j.when)}</div><div class="title">${esc(j.title)}</div>` +
     `<div class="org" style="color:${esc(j.fg)}">${esc(j.org)}</div><p class="text">${esc(j.text)}</p></div></li>`
