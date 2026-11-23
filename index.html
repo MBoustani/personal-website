@@ -81,6 +81,8 @@ h2{margin:0 0 6px;font-size:clamp(24px,2.6vw,30px);line-height:1.15;font-weight:
 /* "now" tile */
 .now{grid-column:span 2;grid-row:span 2;background:var(--ink);color:#fff;display:flex;flex-direction:column;justify-content:flex-start;gap:22px}
 .now .where{margin-top:auto}
+.now .focus{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.now .focus li{font-size:14px;padding:6px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.18);color:#e9e7f2}
 .now .explore{color:#d9d6e6;font-size:16px;line-height:1.55;border-top:1px solid rgba(255,255,255,.14);padding-top:18px;margin:0}
 .now .label{color:#b9b6c9;display:flex;align-items:center;gap:8px}
 .now .label::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px rgba(255,107,61,.25)}
@@ -210,6 +212,7 @@ footer{padding:28px 0 36px;color:var(--muted);font-size:14px;display:flex;justif
         <div class="role">Senior Applied Scientist and Technical Lead, Generative AI</div>
         <div class="org">Nexon</div>
       </div>
+      <ul class="focus" aria-label="Focus areas"><li>Agentic AI</li><li>Multi-agent systems</li><li>LLM post-training</li><li>RAG</li><li>LLM evaluation</li><li>MCP</li></ul>
       <p class="explore">Also exploring world models and spatial intelligence: how AI can predict and reason about environments that change over time.</p>
       <div class="where">Los Angeles, California</div>
     </section>
